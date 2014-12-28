@@ -1,16 +1,12 @@
 /*
- * 9. Ввeсти логин <script>alert(123)</script> и корректный пароль
+ *  9. Р’РІeСЃС‚Рё Р»РѕРіРёРЅ <script>alert(123)</script> Рё РєРѕСЂСЂРµРєС‚РЅС‹Р№ РїР°СЂРѕР»СЊ
  */
 package junittest;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
-
 import java.io.File;
 import java.io.IOException;
- 
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -19,20 +15,13 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
-
-/*С‡С‚РѕР±С‹ РІРєР»СЋС‡РёС‚СЊ С„Р»Р°Рі С‚РµСЃС‚*/
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.Select;
-/**С‡С‚РѕР±С‹ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РІСЂРµРјСЏ РЅР° РѕС‚РєСЂС‹С‚РёРµ Р±СЂР°СѓР·РµСЂР°**/
 import org.junit.*;
-
 import java.util.concurrent.TimeUnit;
-
-/******РїРѕРёСЃРє СЌР»РµРјРµРЅС‚Р° РЅР° СЃС‚СЂР°РЅРёС†Рµ  by id****/
 import org.openqa.selenium.*;
-
 
 
 
@@ -44,7 +33,7 @@ public class test9 {
      @BeforeClass
      public static void createAndStartService() throws IOException {
          service = new ChromeDriverService.Builder()
-            .usingDriverExecutable(new File("D://тестирование/chromedriver.exe"))
+            .usingDriverExecutable(new File("D://С‚РµСЃС‚РёСЂРѕРІР°РЅРёРµ/chromedriver.exe"))
             .usingAnyFreePort()
             .build();
          service.start();
@@ -55,11 +44,9 @@ public class test9 {
     	 DesiredCapabilities capabilities = DesiredCapabilities.chrome();
     	 ChromeOptions options = new ChromeOptions();
     	 options.addArguments("--test-type");
-    	 capabilities.setCapability("chrome.binary","D://тестирование/chromedriver.exe");
+    	 capabilities.setCapability("chrome.binary","D://С‚РµСЃС‚РёСЂРѕРІР°РЅРёРµ/chromedriver.exe");
     	 capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-    	    
     	 driver = new ChromeDriver(service, capabilities);
-     
     	 baseUrl = "http://www.moedelo.org/";
     	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
      }
@@ -71,9 +58,8 @@ public class test9 {
     	 driver.findElement(By.id("signinEmail")).sendKeys("<script>alert(123)</script>");
     	 driver.findElement(By.id("signinPassword")).clear();
     	 driver.findElement(By.id("signinPassword")).sendKeys("19910411");
-    	 driver.findElement(By.xpath("//input[@value='Войти в сервис']")).click();
-    	 driver.findElement(By.linkText("Вернуться назад")).click();
-    	 
+    	 driver.findElement(By.xpath("//input[@value='Р’РѕР№С‚Рё РІ СЃРµСЂРІРёСЃ']")).click();
+    	 driver.findElement(By.linkText("Р’С‹Р№С‚Рё")).click();
     	 driver.get(baseUrl + "/Default/Auth");
      }
  
