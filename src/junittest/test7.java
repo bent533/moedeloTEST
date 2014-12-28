@@ -1,14 +1,12 @@
 /*
- * 7. ��e��� ������������ ����� � ������������ ������.
+ * 7. Ввeсти некорректный логин и некорректный пароль.
  */
 package junittest;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 import java.io.File;
 import java.io.IOException;
- 
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,19 +14,13 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
-
-/*чтобы включить флаг тест*/
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import org.openqa.selenium.support.ui.Select;
-/**чтобы установить время на открытие браузера**/
 import org.junit.*;
 import java.util.concurrent.TimeUnit;
-/******поиск элемента на странице  by id****/
 import org.openqa.selenium.*;
-
 
 
 
@@ -40,7 +32,7 @@ public class test7 {
      @BeforeClass
      public static void createAndStartService() throws IOException {
          service = new ChromeDriverService.Builder()
-            .usingDriverExecutable(new File("D://������������/chromedriver.exe"))
+            .usingDriverExecutable(new File("D://тестирование/chromedriver.exe"))
             .usingAnyFreePort()
             .build();
          service.start();
@@ -51,11 +43,9 @@ public class test7 {
     	 DesiredCapabilities capabilities = DesiredCapabilities.chrome();
     	 ChromeOptions options = new ChromeOptions();
     	 options.addArguments("--test-type");
-    	 capabilities.setCapability("chrome.binary","D://������������/chromedriver.exe");
+    	 capabilities.setCapability("chrome.binary","D://тестирование/chromedriver.exe");
     	 capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-    	    
     	 driver = new ChromeDriver(service, capabilities);
-     
     	 baseUrl = "http://www.moedelo.org/";
     	 driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
      }
@@ -67,7 +57,7 @@ public class test7 {
     	 driver.findElement(By.id("signinEmail")).sendKeys("bent755@gmail.com");
     	 driver.findElement(By.id("signinPassword")).clear();
     	 driver.findElement(By.id("signinPassword")).sendKeys("qwerty12345");
-    	 driver.findElement(By.xpath("//input[@value='����� � ������']")).click();
+    	 driver.findElement(By.xpath("//input[@value='Войти в сервис']")).click();
     	 driver.get(baseUrl + "/Default/Auth");
      }
  
